@@ -10,19 +10,19 @@ class Index extends SuperComponent {
       title: 'I am index page'
     }
 
-    Console.log('constructor');
+    console.log('constructor');
   }
 
   componentDidMount() {
-    Console.log('componentDidMount');
+    console.log('componentDidMount');
   }
 
   componentDidUpdate() {
-    Console.log('componentDidUpdate');
+    console.log('componentDidUpdate');
   }
 
   componentWillMount() {
-    Console.log('componentWillMount');
+    console.log('componentWillMount');
   }
 
   updateTitle() {
