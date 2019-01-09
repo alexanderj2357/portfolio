@@ -10,23 +10,24 @@ class Navbar extends React.Component {
       <>
         <p>{title}</p>
         {this.props.children}
+        
         <Link href='/'>
-          <a>Home</a>
+          <a style={{'fontSize': '20px'}}>Home</a>
         </Link>
 
-        <Link href='/About'>
+        <Link href='/about'>
           <a>About</a>
         </Link>
 
-        <Link href='/Blog'>
+        <Link href='/blog'>
           <a>Blog</a>
         </Link>
 
-        <Link href='/Portfolio'>
+        <Link href='/portfolio'>
           <a>Portfolio</a>
         </Link>
 
-        <Link href='/Resume'>
+        <Link href='/resume'>
           <a>Resume</a>
         </Link>
       </>
