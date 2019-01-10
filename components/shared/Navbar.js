@@ -23,7 +23,7 @@ class Navbar extends React.Component {
           <a>Blog</a>
         </Link>
 
-        <Link href='/portfolio'>
+        <Link href='/portfolios'>
           <a>Portfolio</a>
         </Link>
 

@@ -1,46 +1,16 @@
 import React from 'react';
-import axios from 'axios';
-import Link from 'next/link';
 import BaseLayout from '../components/layouts/BaseLayout';
+import {withRouter} from 'next/router';
 
-class Portfolio extends React.Component {
-  static async getInitialProps() {
-    let posts = [];
-
-    try {
-      const response = await axios.get('https://jsonplaceholder.typicode.com/posts');
-      posts = response.data;
-    } catch(err) {
-      console.error(err);
-    }
-
-    return {posts: posts.splice(0, 10)};
-  }
-
-  renderPosts(posts) {
-    return posts.map((post) => {
-      return (
-        <li> 
-          <Link as={`/portfolio/${post.id}`} href={`/portfolioItem?title=${post.title}`}>
-            <a style={{'fontSize': '20px'}}> {post.title} </a>
-          </Link>
-        </li>
-      )
-    })
-  }
-  
+class PortfolioItem extends React.Component {
   render() {
-    const { posts } = this.props;
-
     return (
       <BaseLayout>
         <h1>Portfolio</h1>
-        <ul>
-          { this.renderPosts(posts) }
-        </ul>
+        <h2>{this.props.router.query.id}</h2>
       </BaseLayout>
     );
   }
 }
 
-export default Portfolio;
+export default withRouter(PortfolioItem);
