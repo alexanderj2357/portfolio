@@ -1,24 +1,20 @@
-const express = require('express')
-const next = require('next')
-const dev = process.env.NODE_ENV !== 'production'
-const app = next({ dev })
-const handle = app.getRequestHandler()
+const express = require('express');
+const next = require('next');
+const routes = require('./routes');
+
+const dev = process.env.NODE_ENV !== 'production';
+const app = next({ dev });
+const handle = routes.getRequestHandler(app);
 
 app.prepare()
 .then(() => {
   const server = express()
 
-  server.get('/portfolio/:id', (reg, res) => {
-    const actualPage = '/portfolio'
-    const queryParams = { title: reg.params.id }
-    app.render(reg, res, actualPage, queryParams)
-  })
-
   server.get('*', (reg, res) => {
     return handle(reg, res)
   })
 
-  server.listen(3000, (err) => {
+  server.use(handle).listen(3000, (err) => {
     if (err) throw err
     console.log('> Ready on http://localhost:3000')
   })
