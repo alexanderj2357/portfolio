@@ -39,7 +39,7 @@ class Portfolio extends React.Component {
           { this.renderPosts(posts) }
         </ul>
       </BaseLayout>
-    );
+    )
   }
 }
 
