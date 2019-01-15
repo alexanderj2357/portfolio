@@ -7,7 +7,7 @@ class Resume extends React.Component {
       <BaseLayout>
         <h1>Resume</h1>
       </BaseLayout>
-    );
+    )
   }
 }
 

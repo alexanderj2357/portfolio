@@ -27,7 +27,7 @@ class PortfolioItem extends React.Component {
         <p>BODY: {portfolio.body}</p>
         <p>ID: {portfolio.id}</p>
       </BaseLayout>
-    );
+    )
   }
 }
 
