@@ -5,7 +5,7 @@ import BaseLayout from '../components/layouts/BaseLayout';
 class About extends React.Component {
   render() {
     return (
-      <BaseLayout>
+      <BaseLayout {...this.props.auth}>
         <BasePage className="about-page">
           <h1>About</h1>
         </BasePage>
