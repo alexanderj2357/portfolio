@@ -8,15 +8,15 @@ import '../styles/main.scss'
 export default class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
     let pageProps = {};
-    const user = process.browser ? auth0.clientAuth() : auth0.serverAuth(ctx.req);
+    const user = process.browser ? await auth0.clientAuth() : await auth0.serverAuth(ctx.req);
 
     if (Component.getInitialProps) {
       pageProps = await Component.getInitialProps(ctx)
     }
-    
+
     const auth = { user, isAuthenticated: !!user };
 
-    return { pageProps, auth };
+    return { pageProps, auth }
   }
 
   render () {
